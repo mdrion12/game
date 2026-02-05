@@ -1,22 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Save The Human</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html, body {
+        body {
             margin: 0;
-            padding: 0;
-            overflow: hidden;  /* scroll bars off */
-            background: #222;
+            overflow: hidden;
+            background: black;
+            font-family: Arial, sans-serif;
+            color: white;
         }
-        canvas {
+
+        #controls {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            padding: 20px 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 10;
+            box-shadow: 0 0 20px yellow;
+        }
+
+        #controls h2 {
+            margin:0 0 10px 0; 
+            font-size: 22px; 
+            color: yellow;
+        }
+
+        .file-label {
             display: block;
-            background: #222;
+            margin: 10px 0;
+            font-size: 18px;
+            color: white;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+            display: block;
+        }
+
+        #startBtn {
+            margin-top: 15px;
+            padding: 10px 25px;
+            font-size: 18px;
+            background: yellow;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #startBtn:hover {
+            background: orange;
+        }
+
+        #gameCanvas {
+            display: block;
+        }
+
+        #restartBtn {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 20;
         }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas"></canvas>
-    <script src="game.js"></script>
+
+<div id="controls">
+    <h2>Customize Your Game</h2>
+    <label class="file-label">Human Image:
+        <input type="file" id="humanInput" accept="image/*">
+    </label>
+    <label class="file-label">Bee Face Image:
+        <input type="file" id="faceInput" accept="image/*">
+    </label>
+    <button id="startBtn">Start Game</button>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+<button id="restartBtn">Restart Game</button>
+
+<script src="game.js"></script>
 </body>
 </html>
